@@ -2,10 +2,109 @@
 	<featureModel chosenLayoutAlgorithm="1">
 		<struct>
 			<and abstract="true" mandatory="true" name="StatMeUp">
-				<feature name="Base"/>
+				<and abstract="true" name="Creation">
+					<and name="variable">
+						<feature name="normalDistributed"/>
+						<feature name="PoissonDistributed"/>
+						<feature name="customDistribution"/>
+					</and>
+					<feature name="set"/>
+				</and>
+				<and abstract="true" mandatory="true" name="Extraction">
+					<feature mandatory="true" name="mean"/>
+					<feature mandatory="true" name="standardDerivation"/>
+					<feature mandatory="true" name="median"/>
+					<feature mandatory="true" name="variance"/>
+					<feature mandatory="true" name="modalValue"/>
+					<feature name="minimum"/>
+					<feature name="maximum"/>
+					<feature name="kurtosis"/>
+				</and>
+				<and name="sort">
+					<feature name="ascending"/>
+					<feature name="descending"/>
+				</and>
+				<and abstract="true" name="Application">
+					<feature abstract="true" name="networkStats"/>
+					<and abstract="true" name="textAnalysis">
+						<feature name="email"/>
+						<feature name="singleDoc"/>
+					</and>
+				</and>
+				<feature mandatory="true" name="loadSet"/>
+				<feature name="saveSet"/>
+				<and abstract="true" name="Visualization">
+					<feature name="GUI"/>
+					<feature name="Terminal"/>
+					<feature name="plot"/>
+					<feature name="histogram"/>
+					<feature name="table"/>
+					<feature name="scatterplot"/>
+				</and>
+				<feature name="loadImage"/>
+				<and abstract="true" name="adHocMode">
+					<feature name="readSet"/>
+				</and>
+				<feature name="xml"/>
+				<feature name="json"/>
 			</and>
 		</struct>
-		<constraints/>
+		<constraints>
+			<rule>
+				<imp>
+					<var>set</var>
+					<var>variable</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>customDistribution</var>
+					<var>normalDistributed</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>saveSet</var>
+					<disj>
+						<var>json</var>
+						<var>xml</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>loadSet</var>
+					<disj>
+						<var>json</var>
+						<var>xml</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>histogram</var>
+					<var>plot</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>histogram</var>
+						<conj>
+							<var>scatterplot</var>
+							<conj>
+								<var>table</var>
+								<var>plot</var>
+							</conj>
+						</conj>
+					</conj>
+					<disj>
+						<var>Terminal</var>
+						<var>GUI</var>
+					</disj>
+				</imp>
+			</rule>
+		</constraints>
 		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
 		<featureOrder userDefined="false"/>
