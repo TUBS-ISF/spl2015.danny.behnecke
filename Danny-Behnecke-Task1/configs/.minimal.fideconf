@@ -7,6 +7,8 @@
 22PoissonDistributed
 22customDistribution
 22set
+22uniform
+22different
 21Extraction
 21mean
 21standardDerivation
@@ -26,9 +28,9 @@
 22singleDoc
 21loadSet
 22saveSet
-22Visualization
+21Visualization
 22GUI
-22Terminal
+21Terminal
 22plot
 22histogram
 22table

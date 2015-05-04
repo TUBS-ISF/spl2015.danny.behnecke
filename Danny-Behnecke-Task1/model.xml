@@ -3,50 +3,200 @@
 		<struct>
 			<and abstract="true" mandatory="true" name="StatMeUp">
 				<and abstract="true" name="Creation">
+					<description>
+						can create random variables/sets
+					</description>
 					<and name="variable">
-						<feature name="normalDistributed"/>
-						<feature name="PoissonDistributed"/>
-						<feature name="customDistribution"/>
+						<description>
+							create random  variable
+						</description>
+						<feature name="normalDistributed">
+							<description>
+								create normal distributed variable
+							</description>
+						</feature>
+						<feature name="PoissonDistributed">
+							<description>
+								create poisson distributed variable
+							</description>
+						</feature>
+						<feature name="customDistribution">
+							<description>
+								create variable according to a custom distribution
+							</description>
+						</feature>
 					</and>
-					<feature name="set"/>
+					<and name="set">
+						<description>
+							create a set of variables
+						</description>
+						<feature name="uniform">
+							<description>
+								create a set uniform distributed to a distribution
+							</description>
+						</feature>
+						<feature name="different">
+							<description>
+								create set from different distributed variables (will become normal distributed in the end)
+							</description>
+						</feature>
+					</and>
 				</and>
 				<and abstract="true" mandatory="true" name="Extraction">
-					<feature mandatory="true" name="mean"/>
-					<feature mandatory="true" name="standardDerivation"/>
-					<feature mandatory="true" name="median"/>
-					<feature mandatory="true" name="variance"/>
-					<feature mandatory="true" name="modalValue"/>
-					<feature name="minimum"/>
-					<feature name="maximum"/>
-					<feature name="kurtosis"/>
+					<description>
+						key values can be extracted from the set
+					</description>
+					<feature mandatory="true" name="mean">
+						<description>
+							calculate mean of set
+						</description>
+					</feature>
+					<feature mandatory="true" name="standardDerivation">
+						<description>
+							calculate the standard derivation of the set
+						</description>
+					</feature>
+					<feature mandatory="true" name="median">
+						<description>
+							calculate the median of the set
+						</description>
+					</feature>
+					<feature mandatory="true" name="variance">
+						<description>
+							calculate the variance of the set
+						</description>
+					</feature>
+					<feature mandatory="true" name="modalValue">
+						<description>
+							calculate the modal value of the set
+						</description>
+					</feature>
+					<feature name="minimum">
+						<description>
+							find minimum value
+						</description>
+					</feature>
+					<feature name="maximum">
+						<description>
+							find maximum value
+						</description>
+					</feature>
+					<feature name="kurtosis">
+						<description>
+							calculate the kurtosis of the set
+						</description>
+					</feature>
 				</and>
 				<and name="sort">
-					<feature name="ascending"/>
-					<feature name="descending"/>
+					<description>
+						the set can be sorted
+					</description>
+					<feature name="ascending">
+						<description>
+							sort in ascending order
+						</description>
+					</feature>
+					<feature name="descending">
+						<description>
+							sort in descending order
+						</description>
+					</feature>
 				</and>
 				<and abstract="true" name="Application">
-					<feature abstract="true" name="networkStats"/>
+					<description>
+						possible featured applications that use statistical framework
+					</description>
+					<feature abstract="true" name="networkStats">
+						<description>
+							create statistic from networkflow or listening to several ports (log ping for example)
+						</description>
+					</feature>
 					<and abstract="true" name="textAnalysis">
-						<feature name="email"/>
-						<feature name="singleDoc"/>
+						<description>
+							statistically analyze texts
+						</description>
+						<feature name="email">
+							<description>
+								analyze all your emails
+							</description>
+						</feature>
+						<feature name="singleDoc">
+							<description>
+								analyze a single document
+							</description>
+						</feature>
 					</and>
 				</and>
-				<feature mandatory="true" name="loadSet"/>
-				<feature name="saveSet"/>
+				<feature mandatory="true" name="loadSet">
+					<description>
+						load a set from file
+					</description>
+				</feature>
+				<feature name="saveSet">
+					<description>
+						save a set w/wo calculations
+					</description>
+				</feature>
 				<and abstract="true" name="Visualization">
-					<feature name="GUI"/>
-					<feature name="Terminal"/>
-					<feature name="plot"/>
-					<feature name="histogram"/>
-					<feature name="table"/>
-					<feature name="scatterplot"/>
+					<description>
+						visualize your calculations
+					</description>
+					<feature name="GUI">
+						<description>
+							use a GUI
+						</description>
+					</feature>
+					<feature name="Terminal">
+						<description>
+							use the terminal output
+						</description>
+					</feature>
+					<feature name="plot">
+						<description>
+							plot your set with interesting values displayed
+						</description>
+					</feature>
+					<feature name="histogram">
+						<description>
+							plot a histogram of your set
+						</description>
+					</feature>
+					<feature name="table">
+						<description>
+							create table of your set (values vs probability)
+						</description>
+					</feature>
+					<feature name="scatterplot">
+						<description>
+							create scatterplot for two variables of your set
+						</description>
+					</feature>
 				</and>
-				<feature name="loadImage"/>
+				<feature name="loadImage">
+					<description>
+						load an image (rgb or grayscale values ) as data set
+					</description>
+				</feature>
 				<and abstract="true" name="adHocMode">
-					<feature name="readSet"/>
+					<description>
+						terminal adhoc mode (e.g. for server use)
+					</description>
+					<feature name="readSet">
+						<description>
+							read in a set from terminal or get it piped from another program
+						</description>
+					</feature>
 				</and>
-				<feature name="xml"/>
-				<feature name="json"/>
+				<feature name="xml">
+					<description>
+						be able to load from / save to the xml format
+					</description>
+				</feature>
+				<feature name="json">
+					<description>
+						be able to load from / save to the xml format
+					</description>
+				</feature>
 			</and>
 		</struct>
 		<constraints>
@@ -102,6 +252,12 @@
 						<var>Terminal</var>
 						<var>GUI</var>
 					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>adHocMode</var>
+					<var>Terminal</var>
 				</imp>
 			</rule>
 		</constraints>

@@ -7,6 +7,8 @@
 12PoissonDistributed
 12customDistribution
 12set
+22uniform
+22different
 21Extraction
 21mean
 21standardDerivation
