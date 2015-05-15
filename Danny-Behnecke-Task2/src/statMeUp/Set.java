@@ -10,6 +10,11 @@ package statMeUp;
  */
 public class Set {
 
+private String name  = "DEFAULT";
+	
+
+
+
 /** The set. */
 private double[] set;//@TODO arraylist for changing set
 
@@ -25,12 +30,31 @@ private Extraction calc = new Extraction();
  *
  * @param set the set
  */
-public Set(double[] set){
-	
+public Set(String name,double[] set){
+	setName(name);
 	setSet(set);
 	setVariance(calc.variance(this.set));
 	setMean(calc.mean(this.set));
 	setMedian(calc.median(this.set));
+	setModal(calc.modal(this.set));
+}
+
+public Set(){
+	setName("DEFAULT");
+	setSet(new double[5]);
+	setVariance(0.0);
+	setMean(0.0);
+	setMedian(0.0);
+	setModal(0);
+}
+
+public String getName() {
+	return name;
+}
+
+
+public void setName(String name) {
+	this.name = name;
 }
 
 

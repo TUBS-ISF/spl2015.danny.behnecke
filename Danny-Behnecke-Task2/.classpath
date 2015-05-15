@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="E:/libs/gson/gson-2.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/libs/gson/gson-2.3.1.jar"/>
 	<classpathentry kind="lib" path="E:/libs/poi-3.10-FINAL/poi-3.10-FINAL-20140208.jar"/>
 	<classpathentry kind="lib" path="E:/libs/poi-3.10-FINAL/poi-ooxml-3.10-FINAL-20140208.jar"/>
 	<classpathentry kind="lib" path="E:/libs/poi-3.10-FINAL/poi-ooxml-schemas-3.10-FINAL-20140208.jar"/>
