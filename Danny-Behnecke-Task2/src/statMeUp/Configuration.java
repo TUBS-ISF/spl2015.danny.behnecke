@@ -8,6 +8,7 @@ public class Configuration {
 	public static boolean ADHOC = false;
 	public static boolean SAVE = false; //TODO implement save
 	public static boolean IMAGE = false;//TODO implement image readin
+	public static String DEFAULT_SAVE_PATH = "D:";
 
 	Configuration(String[] params) {
 

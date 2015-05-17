@@ -32,12 +32,9 @@ public class Extraction {
 		}
 		result /= dataset.length;
 
-		if (result - Math.floor(result) < 0.5) {
-			return Math.floor(result);
-		} else {
-			return Math.ceil(result);
+		return result;
 		}
-	}
+	
 
 	/**
 	 * Modal.

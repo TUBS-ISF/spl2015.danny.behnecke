@@ -2,11 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="E:/libs/gson/gson-2.3.1.jar"/>
-	<classpathentry kind="lib" path="E:/libs/poi-3.10-FINAL/poi-3.10-FINAL-20140208.jar"/>
-	<classpathentry kind="lib" path="E:/libs/poi-3.10-FINAL/poi-ooxml-3.10-FINAL-20140208.jar"/>
-	<classpathentry kind="lib" path="E:/libs/poi-3.10-FINAL/poi-ooxml-schemas-3.10-FINAL-20140208.jar"/>
-	<classpathentry kind="lib" path="E:/libs/poi-3.10-FINAL/ooxml-lib/stax-api-1.0.1.jar"/>
-	<classpathentry kind="lib" path="E:/libs/poi-3.10-FINAL/ooxml-lib/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-gson-2.2.4/gson-2.2.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,0 +1,19 @@
+Domäne: Statistik
+
+Features:
+-Mittelwert
+-Median
+-Varianz
+-Standardabweichung
+-Erwartungswert
+-empirisches Quantil
+  -besondere Quantile direkt wählbar
+-Modalwert
+-Daten eingeben
+-Daten laden -> versch. Dateiformate
+-Daten speichern -> versch. Dateiformate
+-Direktmodus (werte händisch eingeben und mit arbeiten)
+-Netzwerkstatistik?
+-GUI
+-Streudiagramm
+-Histogramm -> markante Punkte anzeigen
