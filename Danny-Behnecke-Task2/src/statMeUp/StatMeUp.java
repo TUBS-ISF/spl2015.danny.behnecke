@@ -63,6 +63,10 @@ public class StatMeUp {
 		if (Character.toLowerCase(choice) == 'e') {
 			extractionContext();
 		}
+		
+		if (Character.toLowerCase(choice) == 'r') {
+			adHocContext();
+		}
 
 	}
 
@@ -157,5 +161,29 @@ public class StatMeUp {
 
 		}
 
+	}
+
+	public static void adHocContext() {
+
+		Adhoc a = new Adhoc();
+		double[] data = a.readIn(input);
+
+		System.out.println("This is your set: " + Arrays.toString(data));
+		System.out.println("Do you want to analyze this set?:([y]es/[n]o)");
+
+		char choice = input.next().charAt(0);
+
+		if (Character.toLowerCase(choice) == 'y') {
+		System.out.println("Please name your set");
+		String name = input.next();
+		Set n = new Set(name, data);
+		
+		current = n;
+		return;
+		}
+
+		if (Character.toLowerCase(choice) == 'n') {
+			return; 
+		}
 	}
 }
