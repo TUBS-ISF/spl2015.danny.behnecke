@@ -36,6 +36,7 @@ public Set(String name,double[] set){
 	setName(name);
 	setSet(set);
 	setVariance(calc.variance(this.set));
+	setStandardDeviation(calc.standardDeviation(this.set));
 	setMean(calc.mean(this.set));
 	setMedian(calc.median(this.set));
 	setModal(calc.modal(this.set));
@@ -45,6 +46,7 @@ public Set(){
 	setName("DEFAULT");
 	setSet(new double[5]);
 	setVariance(0.0);
+	setStandardDeviation(0.0);
 	setMean(0.0);
 	setMedian(0.0);
 	setModal(0);
@@ -192,11 +194,11 @@ public String toString(){
 public String getAttributes(){
 	String result="[";
 		
-	result+="mean:" + getMean() +" | ";
-	result+="median"+ getMedian() +" | ";
+	result+="mean: " + getMean() +" | ";
+	result+="median "+ getMedian() +" | ";
 	if(Configuration.isMODAL())result+="modal"+ getModal() +" | ";
-	result+="variance"+ getVariance() +" | ";
-	result+="standard deviation"+ getStandardDeviation() +" | ";
+	result+="variance "+ getVariance() +" | ";
+	result+="standard deviation "+ getStandardDeviation();
 	result+="]\n";
 	
 	return result;

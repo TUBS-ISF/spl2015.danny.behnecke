@@ -25,7 +25,7 @@ public class loadJSON implements loadSet {
 		Gson gson = new Gson();
 		try{
 			BufferedReader br = new BufferedReader(new FileReader(path));
-			Set obj = gson.fromJson(br, Set.class); //TODO fix malformed json exception
+			Set obj = gson.fromJson(br, Set.class); 
 			return obj;
 			
 		} catch(IOException e){

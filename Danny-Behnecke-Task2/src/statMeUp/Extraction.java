@@ -91,9 +91,9 @@ public class Extraction {
 	 * @param dataset the dataset
 	 * @return the double
 	 */
-	public double variance(double[] dataset) {//TODO buggy
+	public double variance(double[] dataset) {
 
-		double degreeOfFreedom = dataset.length - 1;
+		double degreeOfFreedom = dataset.length ;
 		double var = 0;
 		double mean = mean(dataset);
 
@@ -114,6 +114,6 @@ public class Extraction {
 	 */
 	public double standardDeviation(double[] dataset) {
 
-		return Math.pow(variance(dataset),0.5);
+		return Math.sqrt(variance(dataset));
 	}
 }
