@@ -42,7 +42,8 @@ public class Extraction {
 	 * @param dataset the dataset
 	 * @return the double
 	 */
-	public double modal(double[] dataset) {
+	public double modal(double[] set) {
+		double[] dataset = set;
 		double modal = 0;
 		double mfreq = 0;
 		for (double i : dataset) {
@@ -83,7 +84,7 @@ public class Extraction {
 	 * @param dataset the dataset
 	 * @return the double
 	 */
-	public double variance(double[] dataset) {
+	public double variance(double[] dataset) {//TODO buggy
 
 		double degreeOfFreedom = dataset.length - 1;
 		double var = 0;
@@ -92,8 +93,10 @@ public class Extraction {
 		for (int i = 0; i < dataset.length; i++) {
 			var += Math.pow(dataset[i] - mean, 2);
 		}
+		
+		var/=degreeOfFreedom;
 
-		return var / degreeOfFreedom;
+		return var;
 	}
 
 	/**
@@ -104,6 +107,6 @@ public class Extraction {
 	 */
 	public double standardDeviation(double[] dataset) {
 
-		return Math.sqrt(variance(dataset));
+		return Math.pow(variance(dataset),0.5);
 	}
 }

@@ -1,5 +1,7 @@
 package statMeUp;
 
+import java.util.Arrays;
+
 
 /**
  * The Class Set.
@@ -177,5 +179,28 @@ public void setStandardDeviation(double standardDeviation) {
 	this.standardDeviation = standardDeviation;
 }
 
+public String toString(){
+	String result="";
+	
+	result+="Name: " + getName() + "\n";
+	result+="Data: " + Arrays.toString(getSet()) +"\n";
+	result+="Attributes: " + getAttributes();
+	
+	return result;
+}
+
+public String getAttributes(){
+	String result="[";
+		
+	result+="mean:" + getMean() +" | ";
+	result+="median"+ getMedian() +" | ";
+	if(Configuration.isMODAL())result+="modal"+ getModal() +" | ";
+	result+="variance"+ getVariance() +" | ";
+	result+="standard deviation"+ getStandardDeviation() +" | ";
+	result+="]\n";
+	
+	return result;
+	
+}
 
 }
