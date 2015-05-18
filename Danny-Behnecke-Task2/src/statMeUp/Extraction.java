@@ -73,8 +73,15 @@ public class Extraction {
 
 		double[] sortSet = dataset;
 		Arrays.sort(sortSet);
-		int index = sortSet.length / 2 ;
-		return sortSet[index];
+	
+		  if (sortSet.length % 2 == 0) 
+	       {
+	          return (sortSet[(sortSet.length / 2) - 1] + sortSet[sortSet.length / 2]) / 2.0;
+	       } 
+	       else 
+	       {
+	          return sortSet[sortSet.length / 2];
+	       }
 
 	}
 
