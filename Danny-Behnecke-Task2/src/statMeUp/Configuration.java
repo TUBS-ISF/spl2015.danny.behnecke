@@ -31,6 +31,7 @@ public class Configuration {
 			}
 			if (Character.toLowerCase(params[i].charAt(0)) == 'z') {
 				setVISUALIZATION(true);
+
 			}
 			if (Character.toLowerCase(params[i].charAt(0)) == 'a') {
 				setADHOC(true);
@@ -43,6 +44,8 @@ public class Configuration {
 			}
 
 		}
+		
+
 	}
 
 	public void printHelp() {

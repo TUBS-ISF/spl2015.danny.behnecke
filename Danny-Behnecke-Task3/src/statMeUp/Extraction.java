@@ -7,8 +7,10 @@ package statMeUp;
  * 
  */
 
-
 import java.util.Arrays;
+import java.util.Comparator;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 
 /**
  * The Class Extraction.
@@ -20,7 +22,8 @@ public class Extraction {
 	/**
 	 * Mean.
 	 *
-	 * @param dataset the dataset
+	 * @param dataset
+	 *            the dataset
 	 * @return the double
 	 */
 	public double mean(double[] dataset) {
@@ -33,13 +36,13 @@ public class Extraction {
 		result /= dataset.length;
 
 		return result;
-		}
-	
+	}
 
 	/**
 	 * Modal.
 	 *
-	 * @param dataset the dataset
+	 * @param dataset
+	 *            the dataset
 	 * @return the double
 	 */
 	public double modal(double[] set) {
@@ -66,42 +69,41 @@ public class Extraction {
 	/**
 	 * Median.
 	 *
-	 * @param dataset the dataset
+	 * @param dataset
+	 *            the dataset
 	 * @return the double
 	 */
 	public double median(double[] dataset) {
 
 		double[] sortSet = dataset;
 		Arrays.sort(sortSet);
-	
-		  if (sortSet.length % 2 == 0) 
-	       {
-	          return (sortSet[(sortSet.length / 2) - 1] + sortSet[sortSet.length / 2]) / 2.0;
-	       } 
-	       else 
-	       {
-	          return sortSet[sortSet.length / 2];
-	       }
+
+		if (sortSet.length % 2 == 0) {
+			return (sortSet[(sortSet.length / 2) - 1] + sortSet[sortSet.length / 2]) / 2.0;
+		} else {
+			return sortSet[sortSet.length / 2];
+		}
 
 	}
 
 	/**
 	 * Variance.
 	 *
-	 * @param dataset the dataset
+	 * @param dataset
+	 *            the dataset
 	 * @return the double
 	 */
 	public double variance(double[] dataset) {
 
-		double degreeOfFreedom = dataset.length ;
+		double degreeOfFreedom = dataset.length;
 		double var = 0;
 		double mean = mean(dataset);
 
 		for (int i = 0; i < dataset.length; i++) {
 			var += Math.pow(dataset[i] - mean, 2);
 		}
-		
-		var/=degreeOfFreedom;
+
+		var /= degreeOfFreedom;
 
 		return var;
 	}
@@ -109,50 +111,76 @@ public class Extraction {
 	/**
 	 * Standard deviation.
 	 *
-	 * @param dataset the dataset
+	 * @param dataset
+	 *            the dataset
 	 * @return the double
 	 */
 	public double standardDeviation(double[] dataset) {
 
 		return Math.sqrt(variance(dataset));
 	}
-	
+
 	/**
-	 * @param dataset the dataset
+	 * @param dataset
+	 *            the dataset
 	 * @return the maximum value from the set
-	 */	 
-	public double getMax(double[] dataset){
-		
+	 */
+	public double getMax(double[] dataset) {
+
 		double result = 0;
-		
-		for(int i=0;i<dataset.length;i++){
-			
-			if(dataset[i]>=result){
+
+		for (int i = 0; i < dataset.length; i++) {
+
+			if (dataset[i] >= result) {
 				result = dataset[i];
 			}
-			
+
 		}
-		
+
 		return result;
 	}
-	
+
 	/**
-	 * @param dataset the dataset
+	 * @param dataset
+	 *            the dataset
 	 * @return the minimum value from the set
 	 * 
 	 * */
-public double getMin(double[] dataset){
-		
+	public double getMin(double[] dataset) {
+
 		double result = 0;
-		
-		for(int i=0;i<dataset.length;i++){
-			
-			if(dataset[i]<=result){
+
+		for (int i = 0; i < dataset.length; i++) {
+
+			if (dataset[i] <= result) {
 				result = dataset[i];
 			}
-			
+
 		}
-		
+
 		return result;
 	}
+
+	public double[] sort(double[] dataset
+	// #ifdef descending
+//@			, boolean mode
+	// #endif
+	) {
+
+		// #ifdef descending
+//@		if (mode) {
+//@			Comparator cmp = java.util.Collections.reverseOrder();
+//@			Arrays.sort(dataset, cmp);
+//@		} else {
+//@			Arrays.sort(dataset);
+//@
+//@		}
+		// #endif
+		// #ifndef descending
+		Arrays.sort(dataset);
+		// #endif
+		return dataset;
+
+	}
+
 }

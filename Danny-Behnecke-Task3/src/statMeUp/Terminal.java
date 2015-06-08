@@ -2,7 +2,7 @@ package statMeUp;
 
 public class Terminal implements Visualization {
 
-	public void plot2D(Set s) {
+	public void plot2D(Set s) {//@TODO fix out of bounds
 		String[][] plot = new String[s.getSet().length][(int) s.getMaximum()];
 		for (int i = 0; i < s.getSet().length; i++) {
 

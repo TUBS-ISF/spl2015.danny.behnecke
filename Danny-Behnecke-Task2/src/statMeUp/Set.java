@@ -21,7 +21,7 @@ private String name  = "DEFAULT";
 private double[] set;//@TODO arraylist for changing set
 
 /** The standard deviation. */
-private double mean, median, modal, variance, standardDeviation;
+private double mean, median, modal, variance, standardDeviation, minimum, maximum;
 
 /** The calc. */
 private Extraction calc = new Extraction();
@@ -40,16 +40,12 @@ public Set(String name,double[] set){
 	setMean(calc.mean(this.set));
 	setMedian(calc.median(this.set));
 	setModal(calc.modal(this.set));
+	setMinimum(calc.getMin(this.set));
+	setMaximum(calc.getMax(this.set));
 }
 
 public Set(){
-	setName("DEFAULT");
-	setSet(new double[5]);
-	setVariance(0.0);
-	setStandardDeviation(0.0);
-	setMean(0.0);
-	setMedian(0.0);
-	setModal(0);
+	this("DEFAULT",new double[]{0.0,0.0,0.0,0.0,0.0});
 }
 
 public String getName() {
@@ -203,6 +199,23 @@ public String getAttributes(){
 	
 	return result;
 	
+}
+
+
+public double getMinimum() {
+	return minimum;
+}
+
+public void setMinimum(double minimum) {
+	this.minimum = minimum;
+}
+
+public double getMaximum() {
+	return maximum;
+}
+
+public void setMaximum(double maximum) {
+	this.maximum = maximum;
 }
 
 }

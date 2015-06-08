@@ -3,9 +3,15 @@ package statMeUp;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/**
- * 
- */
+//antenna defines
+//std defs [Work In Progress]
+
+
+//#define TERMINAl
+//#define VIZUALISATION 
+//#define SET
+
+
 
 /**
  * @author Danny Behnecke
@@ -82,8 +88,9 @@ public class StatMeUp {
 
 		System.out.println("What do you want to create?\n");
 		System.out.println("A [r]andom number\n");
-		if (Configuration.isCREATION())
+			//#ifdef SET
 			System.out.println("A [s]et of random numbers, distributed by...");
+			//#endif
 		char choice = input.next().charAt(0);
 
 		if (Character.toLowerCase(choice) == 'r') {// TODO input type mismatch
@@ -97,7 +104,8 @@ public class StatMeUp {
 			System.out.println(c.variable(rangeMin, rangeMax));
 			return;
 		}
-		if (Configuration.isCREATION()) {
+		
+		//#ifdef SET
 			if (Character.toLowerCase(choice) == 's') {
 
 				Creation c = new Creation();
@@ -132,14 +140,16 @@ public class StatMeUp {
 				return; // for guaranteed return
 
 			}
+			//#endif
 		}
-	}
+	
 
 	public static void extractionContext() {
 
 		System.out.println("Here you can access the attributes of your set");
 		System.out.println("Show [a]ll attributes");
 		System.out.println("Show [w]hole dataset");
+		System.out.println("Show [v]isualization possibilities");
 		System.out.println("[r]eturn");
 		char choice = input.next().charAt(0);
 
@@ -154,6 +164,13 @@ public class StatMeUp {
 			System.out.println(current.toString());
 
 		}
+		//#ifdef VIZUALISATION 
+		if (Character.toLowerCase(choice) == 'v') {
+
+			vizContext();
+
+		}
+		//#endif
 
 		if (Character.toLowerCase(choice) == 'r') {
 
@@ -184,6 +201,37 @@ public class StatMeUp {
 
 		if (Character.toLowerCase(choice) == 'n') {
 			return; 
+		}
+	}
+	
+	public static void vizContext(){
+		
+	//#ifdef TERMINAL
+//@		Terminal t = new Terminal();
+	//#endif	
+		System.out.println("Please select your vizualisation:");
+		System.out.println("[t]able");
+		System.out.println("[p]lot");
+		System.out.println("[r]eturn");
+		
+		char choice = input.next().charAt(0);
+
+		if (Character.toLowerCase(choice) == 'p') {
+
+			t.plot2D(current);
+
+		}
+		
+		if (Character.toLowerCase(choice) == 't') {
+
+			System.out.println("dummy");
+
+		}
+		
+		if (Character.toLowerCase(choice) == 'r') {
+
+			return ;
+
 		}
 	}
 }
