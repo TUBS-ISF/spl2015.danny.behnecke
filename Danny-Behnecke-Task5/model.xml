@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and mandatory="true" name="StatMeUp">
+				<and abstract="true" name="Creation">
+					<description>
+						can create random variables/sets
+					</description>
+					<and name="variable">
+						<description>
+							create random  variable
+						</description>
+						<feature name="normalDistributed">
+							<description>
+								create normal distributed variable
+							</description>
+						</feature>
+						<feature name="exponentialDistributed">
+							<description>
+								create poisson distributed variable
+							</description>
+						</feature>
+						<feature abstract="true" name="customDistributed">
+							<description>
+								create variable according to a custom distribution
+							</description>
+						</feature>
+					</and>
+					<and name="set">
+						<description>
+							create a set of variables
+						</description>
+						<feature name="uniform">
+							<description>
+								create a set uniform distributed to a distribution
+							</description>
+						</feature>
+						<feature name="different">
+							<description>
+								create set from different distributed variables (will become normal distributed in the end)
+							</description>
+						</feature>
+					</and>
+				</and>
+				<and mandatory="true" name="Extraction">
+					<description>
+						key values can be extracted from the set
+					</description>
+					<feature mandatory="true" name="mean">
+						<description>
+							calculate mean of set
+						</description>
+					</feature>
+					<feature mandatory="true" name="standardDerivation">
+						<description>
+							calculate the standard derivation of the set
+						</description>
+					</feature>
+					<feature mandatory="true" name="median">
+						<description>
+							calculate the median of the set
+						</description>
+					</feature>
+					<feature mandatory="true" name="variance">
+						<description>
+							calculate the variance of the set
+						</description>
+					</feature>
+					<feature name="modalValue">
+						<description>
+							calculate the modal value of the set
+						</description>
+					</feature>
+					<feature name="minimum">
+						<description>
+							find minimum value
+						</description>
+					</feature>
+					<feature name="maximum">
+						<description>
+							find maximum value
+						</description>
+					</feature>
+					<feature abstract="true" name="kurtosis">
+						<description>
+							calculate the kurtosis of the set
+						</description>
+					</feature>
+				</and>
+				<feature mandatory="true" name="Set"/>
+				<and abstract="true" name="sort">
+					<description>
+						the set can be sorted
+					</description>
+					<feature name="ascending">
+						<description>
+							sort in ascending order
+						</description>
+					</feature>
+					<feature name="descending">
+						<description>
+							sort in descending order
+						</description>
+					</feature>
+				</and>
+				<and abstract="true" name="Application">
+					<description>
+						possible featured applications that use statistical framework
+					</description>
+					<feature abstract="true" name="networkStats">
+						<description>
+							create statistic from networkflow or listening to several ports (log ping for example)
+						</description>
+					</feature>
+					<and abstract="true" name="textAnalysis">
+						<description>
+							statistically analyze texts
+						</description>
+						<feature abstract="true" name="email">
+							<description>
+								analyze all your emails
+							</description>
+						</feature>
+						<feature abstract="true" name="singleDoc">
+							<description>
+								analyze a single document
+							</description>
+						</feature>
+					</and>
+				</and>
+				<feature mandatory="true" name="loadSet">
+					<description>
+						load a set from file
+					</description>
+				</feature>
+				<feature name="saveSet">
+					<description>
+						save a set w/wo calculations
+					</description>
+				</feature>
+				<and abstract="true" name="Visualization">
+					<description>
+						visualize your calculations
+					</description>
+					<feature abstract="true" name="GUI">
+						<description>
+							use a GUI
+						</description>
+					</feature>
+					<feature name="Terminal">
+						<description>
+							use the terminal output
+						</description>
+					</feature>
+					<feature abstract="true" name="plot">
+						<description>
+							plot your set with interesting values displayed
+						</description>
+					</feature>
+					<feature abstract="true" name="histogram">
+						<description>
+							plot a histogram of your set
+						</description>
+					</feature>
+					<feature abstract="true" name="table">
+						<description>
+							create table of your set (values vs probability)
+						</description>
+					</feature>
+					<feature abstract="true" name="scatterplot">
+						<description>
+							create scatterplot for two variables of your set
+						</description>
+					</feature>
+				</and>
+				<feature abstract="true" name="loadImage">
+					<description>
+						load an image (rgb or grayscale values ) as data set
+					</description>
+				</feature>
+				<and abstract="true" name="adHocMode">
+					<description>
+						terminal adhoc mode (e.g. for server use)
+					</description>
+					<feature name="readSet">
+						<description>
+							read in a set from terminal or get it piped from another program
+						</description>
+					</feature>
+				</and>
+				<feature abstract="true" name="xml">
+					<description>
+						be able to load from / save to the xml format
+					</description>
+				</feature>
+				<feature name="json">
+					<description>
+						be able to load from / save to the xml format
+					</description>
+				</feature>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>set</var>
+					<var>variable</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>customDistributed</var>
+					<var>normalDistributed</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>saveSet</var>
+					<disj>
+						<var>json</var>
+						<var>xml</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>loadSet</var>
+					<disj>
+						<var>json</var>
+						<var>xml</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>histogram</var>
+					<var>plot</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>histogram</var>
+						<conj>
+							<var>scatterplot</var>
+							<conj>
+								<var>table</var>
+								<var>plot</var>
+							</conj>
+						</conj>
+					</conj>
+					<disj>
+						<var>Terminal</var>
+						<var>GUI</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>adHocMode</var>
+					<var>Terminal</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>standardDerivation</var>
+					<var>variance</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
