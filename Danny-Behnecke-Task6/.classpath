@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="variable.aj|normalDistributed.aj|exponentialDistributed.aj|set.aj|uniform.aj|different.aj|modalValue.aj|minimum.aj|maximum.aj|kurtosis.aj|ascending.aj|descending.aj|saveSet.aj|Terminal.aj|readSet.aj" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
+	<classpathentry kind="lib" path="E:/libs/gson/gson-2.3.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
