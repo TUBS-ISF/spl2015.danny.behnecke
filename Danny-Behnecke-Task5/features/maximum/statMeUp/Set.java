@@ -25,9 +25,7 @@ private Extraction calc = new Extraction();
  * @param set the set
  */
 public Set(String name,double[] set){
-original();
-setMaximum(calc.getMax(set));
-
+	setMaximum(calc.getMax(set));
 }
 
 public String getAttributes(){

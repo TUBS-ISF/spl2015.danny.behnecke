@@ -2,7 +2,7 @@
 	<featureModel chosenLayoutAlgorithm="1">
 		<struct>
 			<and mandatory="true" name="StatMeUp">
-				<and abstract="true" name="Creation">
+				<and abstract="true" mandatory="true" name="Creation">
 					<description>
 						can create random variables/sets
 					</description>
@@ -26,7 +26,7 @@
 							</description>
 						</feature>
 					</and>
-					<and name="set">
+					<and mandatory="true" name="set">
 						<description>
 							create a set of variables
 						</description>

@@ -1,4 +1,4 @@
-
+package statMeUp;
 
 import java.util.Arrays;
 
@@ -21,9 +21,7 @@ private double mean;
  * @param set the set
  */
 public Set(String name,double[] set){
-original();
 	setMean(calc.mean(set));
-	
 }
 
 /**

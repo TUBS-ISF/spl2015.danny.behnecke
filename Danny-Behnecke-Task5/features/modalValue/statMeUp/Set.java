@@ -21,7 +21,6 @@ private double modal;
  * @param set the set
  */
 public Set(String name,double[] set){
-original();
 	setModal(calc.modal(this.set));
 }
 

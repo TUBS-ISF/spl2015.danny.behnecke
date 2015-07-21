@@ -21,9 +21,7 @@ private double minimum;
  * @param set the set
  */
 public Set(String name,double[] set){
-original();
 	setMinimum(calc.getMin(set));
-
 }
 
 public String getAttributes(){

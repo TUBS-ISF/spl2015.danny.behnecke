@@ -20,7 +20,6 @@ private double  standardDeviation;
  * @param set the set
  */
 public Set(String name,double[] set){
-	original();
 	setStandardDeviation(calc.standardDeviation(set));
 }
 

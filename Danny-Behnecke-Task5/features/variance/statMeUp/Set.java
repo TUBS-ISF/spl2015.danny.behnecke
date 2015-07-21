@@ -21,7 +21,6 @@ private double variance;
  * @param set the set
  */
 public Set(String name,double[] set){
-	original();
 	setVariance(calc.variance(set));
 	
 }

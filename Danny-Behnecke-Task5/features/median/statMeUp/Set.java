@@ -1,3 +1,4 @@
+package statMeUp;
 
 import java.util.Arrays;
 
@@ -20,10 +21,7 @@ private double median;
  * @param set the set
  */
 public Set(String name,double[] set){
-original();
 	setMedian(calc.median(set));
-
-
 }
 
 /**
